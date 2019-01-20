@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Sarah Sugawara</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,800" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="grid-container">
+    <div class="nav-container__no-shadow">
+    <nav class="nav">
+        <a id="home__link" href="index.html"><h1>Sarah Sugawara</h1></a>
+        <div class="nav-table">
+        <ul class="nav__list">
+            <li class="nav__list__link-item"><a class="nav__link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav__list__link-item"><a class="nav__link" href="profile.html">Profile</a></li>
+        </ul>
+        </div>
+    </nav>
+    </div>
+    <div class="home__hero__container">
+    <section class="home__hero__greeting">
+        <h2><span class="time-of-day">Good morning.</span><br><span class="home__hero__greeting__light">It's nice to meet you.</span></h2>
+    </section>
+    <section class="home__hero__slider">
+        <img src="images/Slider.jpg" />
+        <div class="home__hero__slider__hover">
+                <h3 class="home__hero__slider__hover__title">Designing for Designers</h3>
+                <p class="home__hero__slider__hover__description">Madison Design Website</p>
+                <a href="madison-website.html" class="button__project__white">View Project</a>
+        </div>
+        </section>
+    </div>
+    <footer>
+        &copy; Sarah Sugawara 2018
+    </footer>
+</div>
+<script>
+    const time = document.querySelector('.time-of-day');
+    const hover = document.querySelector('.home__hero__slider__hover');
+    const slider = document.querySelector('.home__hero__slider');
+
+    function getWidth() {
+        return Math.max(
+            document.body.scrollWidth,
+            document.documentElement.scrollWidth,
+            document.body.offsetWidth,
+            document.documentElement.offsetWidth,
+            document.documentElement.clientWidth
+  );
+}
+    document.addEventListener('onload', () => {
+        if (getWidth() < 800) {
+            hover.style.opacity = 1;
+        }
+    });
+
+    slider.addEventListener('mouseover', () => {
+            hover.style.opacity = 1;
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+        hover.style.opacity = 0;
+    });
+
+    const timeOfDay = () => {
+        const date = new Date().toLocaleTimeString().split(" ");
+        const hour = date[0].split(":");
+        if (hour[0] < 12 && date[1] === 'AM') {
+            time.innerHTML = 'Good morning.';
+        }
+        if (hour[0] < 6 && date[1] === 'PM') {
+            time.innerHTML = 'Good afternoon.';
+        }
+        else {
+            time.innerHTML = 'Good evening.';
+        }
+        console.log(hour);
+    }
+
+    
+
+    timeOfDay();
+</script>
+</body>
+</html>
