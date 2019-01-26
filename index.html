@@ -71,18 +71,21 @@
     });
 
     const timeOfDay = () => {
-        const date = new Date().toLocaleTimeString().split(" ");
-        const hour = date[0].split(":");
-        if (hour[0] < 12 && date[1] === 'AM') {
+        const todaysDate = new Date().toLocaleTimeString('en-GB');
+        // const todaysDate = new Date().toLocaleTimeString('en-GB').split(" ");
+        const hour = todaysDate.split(":");
+        if (hour[0] < 12) {
             time.innerHTML = 'Good morning.';
         }
-        if (hour[0] < 6 && date[1] === 'PM') {
-            time.innerHTML = 'Good afternoon.';
-        }
-        else {
+        else if (hour[0] > 18) {
             time.innerHTML = 'Good evening.';
         }
+        else {
+            time.innerHTML = 'Good afternoon.';
+        }
+        console.log(todaysDate);
         console.log(hour);
+        console.log(hour[0]);
     }
 
     
