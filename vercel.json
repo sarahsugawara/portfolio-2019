@@ -1,0 +1,10 @@
+{
+    "name": "portfolio-website",
+    "version": 2,
+    "alias": ["sarahsugawara.com"],
+    "public": true,
+    "trailingSlash": false,
+    "github": {
+        "enabled": true
+    }
+}
